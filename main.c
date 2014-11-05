@@ -35,8 +35,13 @@ int main(){
 	sprintf(content,"committed: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	
 	sprintf(command,"echo \"%s\" > %s.txt",content,filename);
-	puts(command);
+	//puts(command);
 	system(command);
 
+	sprintf(command,"git add %s.txt",filename);
+	//puts(command);
+	system(command);
+	system("git commit -m \"Please never use this\"");
+	system("git push origin master");
 }
 
